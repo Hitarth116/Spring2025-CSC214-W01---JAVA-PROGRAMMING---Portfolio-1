@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'com.example'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // JUnit 5 dependencies for testing
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+application {
+    // Define the main class of the application
+    mainClass = 'TicTacToe'
+}
+
+run {
+    // Forward the system input so the Scanner can read user input
+    standardInput = System.in
+}
+
+test {
+    // Configure Gradle to use JUnit 5 for tests
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "failed", "skipped" // Log the results of the tests
+    }
+}
