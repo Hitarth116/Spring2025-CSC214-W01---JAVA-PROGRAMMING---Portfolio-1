@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="GameLogTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-04-13T15:45:17" hostname="DESKTOP-PAQ7BKH" time="0.024">
+<testsuite name="GameLogTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-05-11T23:35:56" hostname="DESKTOP-PAQ7BKH" time="0.016">
   <properties/>
-  <testcase name="testPrintLog()" classname="GameLogTest" time="0.012"/>
-  <testcase name="testIncrementWins()" classname="GameLogTest" time="0.001"/>
-  <testcase name="testSaveLog()" classname="GameLogTest" time="0.008"/>
-  <system-out><![CDATA[
-The current log is:
-Player X Wins   1
-Player O Wins   1
-Ties            1
-
-Writing the game log to disk. Please see game.txt for the final statistics!
-]]></system-out>
+  <testcase name="testOverallGameTotals()" classname="GameLogTest" time="0.001"/>
+  <testcase name="testTieGameStats()" classname="GameLogTest" time="0.002"/>
+  <testcase name="testPlayerStatTracking()" classname="GameLogTest" time="0.003"/>
+  <testcase name="testMultiplePlayerStats()" classname="GameLogTest" time="0.002"/>
+  <testcase name="testComputerStatsNotTracked()" classname="GameLogTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

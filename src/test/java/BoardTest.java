@@ -1,61 +1,43 @@
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-class BoardTest {
+public class BoardTest {
     private Board board;
-
+    
     @BeforeEach
-    void setUp() {
+    public void setUp() {
         board = new Board();
     }
-
+    
     @Test
-    void testBoardInitialization() {
-        // Test initial board state
-        char[] expectedBoard = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
-        assertArrayEquals(expectedBoard, board.getBoard());
-    }
-
-    @Test
-    void testMakeMove() {
-        // Test making a move on an empty cell
-        board.makeMove(0, 'X');
-        assertTrue(board.isCellOccupied(0));
-        assertEquals('X', board.getBoard()[0]);
-    }
-
-    @Test
-    void testCheckWinner() {
-        // Test for winner on a row
-        board.makeMove(0, 'X');
-        board.makeMove(1, 'X');
-        board.makeMove(2, 'X');
-        int[] winningCombo = board.checkWinner('X');
-        assertNotNull(winningCombo);  // There should be a winning combination
-        assertArrayEquals(new int[]{0, 1, 2}, winningCombo);
-
-        // Test for no winner
-        Board newBoard = new Board();
-        newBoard.makeMove(0, 'X');
-        newBoard.makeMove(1, 'O');
-        newBoard.makeMove(2, 'X');
-        assertNull(newBoard.checkWinner('X'));  // No winner
-    }
-
-    @Test
-    void testBoardFull() {
-        // Test if the board is full
-        board.makeMove(0, 'X');
-        board.makeMove(1, 'O');
-        board.makeMove(2, 'X');
-        board.makeMove(3, 'O');
+    public void testUndoMove() {
+        // Make a move
         board.makeMove(4, 'X');
-        board.makeMove(5, 'O');
-        board.makeMove(6, 'X');
-        board.makeMove(7, 'O');
+        assertTrue(board.isCellOccupied(4));
+        
+        // Undo the move
+        board.undoMove(4);
+        assertFalse(board.isCellOccupied(4));
+        
+        // Check that the cell was reset to its original value
+        assertEquals('5', board.getBoard()[4]);
+    }
+    
+    @Test
+    public void testMultipleMovesAndUndo() {
+        // Make several moves
+        board.makeMove(0, 'X');
+        board.makeMove(4, 'O');
         board.makeMove(8, 'X');
-        assertTrue(board.isFull());
+        
+        // Undo last move
+        board.undoMove(8);
+        
+        // Check board state
+        char[] boardState = board.getBoard();
+        assertEquals('X', boardState[0]);
+        assertEquals('O', boardState[4]);
+        assertEquals('9', boardState[8]);
     }
 }

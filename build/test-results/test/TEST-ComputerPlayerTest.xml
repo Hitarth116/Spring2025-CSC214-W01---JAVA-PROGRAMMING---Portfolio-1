@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ComputerPlayerTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2025-05-11T23:35:56" hostname="DESKTOP-PAQ7BKH" time="0.088">
+  <properties/>
+  <testcase name="testHardComputerCreatesFork()" classname="ComputerPlayerTest" time="0.011"/>
+  <testcase name="testFirstMoveIsCorner()" classname="ComputerPlayerTest" time="0.024"/>
+  <testcase name="testComputerTakesWinningMove()" classname="ComputerPlayerTest" time="0.001"/>
+  <testcase name="testComputerBlocksOpponentWin()" classname="ComputerPlayerTest" time="0.001"/>
+  <testcase name="testRandomMoveWhenNoStrategicOption()" classname="ComputerPlayerTest" time="0.002"/>
+  <testcase name="testComputerPrioritizesWinningOverBlocking()" classname="ComputerPlayerTest" time="0.003"/>
+  <testcase name="testComputerPlayerCreation()" classname="ComputerPlayerTest" time="0.005"/>
+  <testcase name="testSecondMoveIsCenter()" classname="ComputerPlayerTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
